@@ -126,7 +126,11 @@ func (d Deputy) run(cmd *exec.Cmd) error {
 	select {
 	case <-d.Cancel:
 		// this may fail, but there's not much we can do about it
-		return cmd.Process.Kill()
+		err := cmd.Process.Kill()
+		if err != nil {
+			return err
+		}
+		return fmt.Errorf("killed")
 	case <-done:
 		return err
 	}
