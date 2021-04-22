@@ -5,7 +5,7 @@ import (
 	"os/exec"
 	"time"
 
-	"npf.io/deputy"
+	"github.com/Complead/deputy"
 )
 
 func Example() {
